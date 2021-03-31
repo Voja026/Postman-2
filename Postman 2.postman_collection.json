@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "2acb7948-8316-449e-9546-8786521bc9ce",
+		"name": "Postman 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "All cases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/all",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"all"
+					]
+				},
+				"description": "API for live information about COVID-19"
+			},
+			"response": []
+		},
+		{
+			"name": "All coutries",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/countries",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"countries"
+					]
+				},
+				"description": "API for live information about COVID-19"
+			},
+			"response": []
+		},
+		{
+			"name": "Get specific countries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Country\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData.id);",
+							"});",
+							"pm.variables.get(\"country\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}/countries/{{country}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"countries",
+						"{{country}}"
+					]
+				},
+				"description": "API for live information about COVID-19"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://coronavirus-19-api.herokuapp.com"
+		}
+	]
+}

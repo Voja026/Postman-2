@@ -57,7 +57,7 @@
 						"exec": [
 							"pm.test(\"Country\", function() {",
 							"    var jsonData = pm.response.json();",
-							"    console.log(jsonData.id);",
+							"    console.log(jsonData.country);",
 							"});",
 							"pm.variables.get(\"country\");",
 							""
